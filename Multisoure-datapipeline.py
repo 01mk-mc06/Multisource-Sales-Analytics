@@ -19,17 +19,17 @@ spark.conf.set(
 # Use abfss:// protocol (Azure Data Lake Storage Gen2)
 BASE_PATH = f"abfss://{CONTAINER_NAME}@{STORAGE_ACCOUNT_NAME}.dfs.core.windows.net"
 
-print(f"✅ Storage Account: {STORAGE_ACCOUNT_NAME}")
-print(f"✅ Container: {CONTAINER_NAME}")
-print(f"✅ Protocol: abfss:// (Azure Data Lake Storage Gen2)")
-print(f"✅ BASE_PATH: {BASE_PATH}")
+print(f" Storage Account: {STORAGE_ACCOUNT_NAME}")
+print(f" Container: {CONTAINER_NAME}")
+print(f" Protocol: abfss:// (Azure Data Lake Storage Gen2)")
+print(f" BASE_PATH: {BASE_PATH}")
 
 # Test connection
 print("\n--- Testing Connection ---")
 try:
     dbutils.fs.ls(BASE_PATH)
-    print("✅ Connection successful!")
-    print("✅ Hierarchical namespace is enabled (ADLS Gen2)")
+    print(" Connection successful!")
+    print(" Hierarchical namespace is enabled (ADLS Gen2)")
 except Exception as e:
     print(f"Connection failed: {e}")
     print("\nPossible issues:")
@@ -348,7 +348,7 @@ print(f"\n✓ Total records: {len(ecommerce_data):,}")
 
 # COMMAND ----------
 
-# DBTITLE 1,Cell 7
+
 # Save E-commerce Data to Azure ADLS Gen2 
 
 print("="*70)
@@ -584,15 +584,16 @@ for table in ["pos_raw", "ecommerce_raw", "mobile_raw"]:
     path = f"{BASE_PATH}/bronze/{table}/"
     try:
         files = dbutils.fs.ls(path)
-        print(f"✅ {table:20s} {len(files)} items")
+        print(f" {table:20s} {len(files)} items")
     except:
-        print(f"❌ {table:20s} NOT FOUND")
+        print(f" {table:20s} NOT FOUND")
 
 print("\n✓ Day 2 Complete - All 3 sources in Azure ADLS Gen2!")
 
 # COMMAND ----------
 
-# DBTITLE 1,Cell 11
+
+
 # Data Transformation Functions
 
 # Import necessary PySpark functions
@@ -650,7 +651,6 @@ print("✓ Transformation functions created")
 
 # COMMAND ----------
 
-# DBTITLE 1,Cell 12
 # Transform All 3 Sources to Unified Schema
 
 # Import necessary PySpark functions
@@ -1057,9 +1057,9 @@ print("\n--- VERIFYING AZURE ADLS GEN2 PATHS (abfss://) ---")
 for layer in ["bronze", "silver", "gold"]:
     try:
         items = dbutils.fs.ls(f"{BASE_PATH}/{layer}/")
-        print(f"✅ {layer}/ folder: {len(items)} tables")
+        print(f" {layer}/ folder: {len(items)} tables")
     except:
-        print(f"❌ {layer}/ folder: ERROR")
+        print(f" {layer}/ folder: ERROR")
 
 print("\n" + "="*70)
 print("✅ PROJECT COMPLETE - ALL DATA IN AZURE ADLS GEN2!")

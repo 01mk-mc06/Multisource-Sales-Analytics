@@ -1,5 +1,5 @@
 # Databricks notebook source
-# DBTITLE 1,Untitled
+
 
 print("="*70)
 print("AZURE STORAGE CONFIGURATION - ABFSS PROTOCOL")

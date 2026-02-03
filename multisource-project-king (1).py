@@ -1,5 +1,4 @@
 # Databricks notebook source
-# DBTITLE 1,Untitled
 
 print("="*70)
 print("AZURE STORAGE CONFIGURATION - ABFSS PROTOCOL")
@@ -435,7 +434,7 @@ spark.table('bronze.ecommerce_raw').select("orderId", "customer", "lineItems", "
 
 # COMMAND ----------
 
-# Generate Mobile App Data (Parquet format) - FIXED
+# Generate Mobile App Data (Parquet format)
 
 import uuid
 

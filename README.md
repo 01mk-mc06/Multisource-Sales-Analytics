@@ -163,8 +163,6 @@ GROUP BY source_system, quality_tier;
 - [ ] Incremental processing (change data capture)
 - [ ] Multi-region deployment
 
-## 👤 Author
 
-**King** - Business Insights Analyst → Analytics Engineer  
 
 
